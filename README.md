@@ -1,107 +1,275 @@
-# LaporRT - Aplikasi Pelaporan Masalah Lingkungan
+# 📱 LaporRT - Aplikasi Pelaporan Masalah Lingkungan
+
+> **Android Application for Everyday Problems**  
+> Proyek Ujian Akhir Semester - *Mobile Programming (PG119)*  
+> **Fakultas Teknologi Informasi, Universitas Budi Luhur**
+
+<hr>
+
+## 📌 Daftar Isi
+* [a. Deskripsi Aplikasi](#a-deskripsi-aplikasi)
+* [b. Fitur Utama](#b-daftar-fitur)
+* [c. Struktur Activity](#c-daftar-activity)
+* [d. Alur Intent](#d-daftar-intent)
+* [e. Komponen UI / Widget](#e-daftar-widget)
+* [f. Ekosistem Library](#f-daftar-library)
+* [g. Desain Database & ERD](#g-database-erd)
+* [h. Dokumentasi REST API](#h-rest-api-list)
+* [🛠️ Panduan Instalasi & Pengujian](#-panduan-instalasi--pengujian)
+
+<hr>
 
 ## a. Deskripsi Aplikasi
-**Nama Aplikasi:** LaporRT
-**Latar Belakang:** Seringkali masalah infrastruktur atau lingkungan di tingkat RT/RW lambat ditangani karena alur pelaporan yang masih manual. LaporRT hadir untuk memudahkan warga melaporkan masalah secara langsung ke pengurus RT/Kelurahan.
-**Tujuan Solusi:** Memberikan platform digital bagi warga untuk melaporkan masalah infrastruktur (jalan rusak, lampu mati, dll) dengan cepat, transparan, dan terorganisir.
+
+*   **Nama Aplikasi:** LaporRT
+*   **Latar Belakang:** Alur pelaporan masalah fasilitas umum di tingkat RT/RW seringkali lambat ditangani karena masih dilakukan secara manual dan tidak terdokumentasi dengan baik. 
+*   **Tujuan Solusi:** LaporRT hadir sebagai jembatan komunikasi digital yang cepat, transparan, dan terorganisir antara warga dengan pengurus RT. Warga dapat mengirim laporan infrastruktur yang rusak secara langsung dari ponsel mereka untuk kemudian ditinjau dan diperbarui status penanganannya oleh pengurus RT.
+
+<hr>
 
 ## b. Daftar Fitur
-1. **Login Multi-Role:** Warga dapat login untuk melapor, Admin dapat login untuk mengelola laporan.
-2. **List Laporan Dinamis:** Menampilkan semua laporan dengan status terbaru menggunakan RecyclerView.
-3. **Filter Kategori:** Memudahkan pencarian laporan berdasarkan kategori (Jalan Rusak, Sampah, dll).
-4. **Buat Laporan:** Form input laporan dengan validasi data yang ketat, lengkap dengan upload foto dan pilih lokasi di peta.
-5. **Pilih Lokasi di Peta:** peta interaktif, pin diam di tengah, alamat otomatis terisi (reverse geocoding).
-6. **Detail Laporan:** Informasi lengkap laporan, termasuk foto dan tombol buka lokasi di Google Maps.
-7. **Update Status (Admin):** Admin dapat mengubah status laporan (Baru -> Diproses -> Selesai).
-8. **Hapus Laporan:** Fitur untuk menghapus laporan yang tidak valid atau sudah tidak relevan.
+
+*   🔑 **Multi-Role Authentication (Login):** Sistem masuk yang memisahkan hak akses antara **Warga (Resident)** untuk melapor dan **Admin (RT)** untuk memperbarui status penanganan aduan.
+*   📋 **RecyclerView Dinamis:** Daftar pengaduan terupdate yang disajikan secara dinamis lengkap dengan gambar bukti fisik dari server.
+*   🔍 **Filter Kategori Cepat:** Penyaringan laporan instan menggunakan sistem *Chips* untuk mengelompokkan kategori masalah (Jalan Rusak, Lampu Mati, Sampah).
+*   ✍️ **Pembuatan Laporan Terbimbing:** Formulir pelaporan dilengkapi validasi input yang ketat, pengambilan koordinat peta, dan kompresi unggah foto.
+*   📍 **Pilih Lokasi Interaktif (OSMDroid):** Peta berbasis OpenStreetMap dengan fungsionalitas pin terpusat dan pencarian alamat otomatis (*Reverse Geocoding*).
+*   🗺️ **Detail Laporan & Navigasi Luar:** Informasi rinci laporan beserta foto, serta tombol integrasi implicit intent untuk membuka lokasi aduan di aplikasi peta seperti Google Maps atau Waze.
+*   ⚙️ **Manajemen Status & Data (Admin):** Dialog eksklusif bagi Admin untuk memperbarui status (*Baru -> Diproses -> Selesai*) serta fitur penghapusan aduan yang tidak valid.
+
+<hr>
 
 ## c. Daftar Activity
-1. **LoginActivity:** Menangani proses otentikasi pengguna.
-2. **MainActivity:** Menampilkan daftar laporan warga dan filter kategori.
-3. **FormLaporanActivity:** Form untuk membuat laporan baru (kategori, deskripsi, lokasi, foto).
-4. **LocationPickerActivity:** Peta interaktif untuk memilih titik lokasi laporan.
-5. **ReportDetailActivity:** Menampilkan detail laporan dan menyediakan opsi Update/Delete/Buka di Maps.
+
+Aplikasi ini mengimplementasikan **5 Activity** terpisah untuk mengontrol alur kerja aplikasi secara modular:
+
+1.  **`LoginActivity`**  
+    Mengelola autentikasi akun. Memiliki dialog pengaturan IP dinamis tersembunyi (melalui *long-click* tombol masuk) untuk memudahkan koneksi server lokal.
+2.  **`MainActivity`**  
+    Menampilkan dasbor laporan warga, kontrol filter kategori, dan tombol mengarah ke form laporan baru.
+3.  **`FormLaporanActivity`**  
+    Mengendalikan input formulir pelaporan, pengunggahan foto ke server, serta penyimpanan data laporan ke API database.
+4.  **`LocationPickerActivity`**  
+    Menyediakan peta interaktif berbasis OpenStreetMap (OSMDroid) bagi pengguna untuk mencari titik lokasi pengaduan secara visual.
+5.  **`ReportDetailActivity`**  
+    Menampilkan detail data laporan secara lengkap, rute peta eksternal, aksi ubah status (Admin), dan penghapusan data.
+
+<hr>
 
 ## d. Daftar Intent
-1. **Intent (Explicit):** Dari `LoginActivity` ke `MainActivity` setelah login sukses.
-2. **Intent (Explicit):** Dari `MainActivity` ke `FormLaporanActivity` untuk membuat laporan.
-3. **Intent (Explicit):** Dari `FormLaporanActivity` ke `LocationPickerActivity` untuk memilih lokasi, hasil dikembalikan lewat `ActivityResultLauncher` (alamat, latitude, longitude).
-4. **Intent (Explicit):** Dari `MainActivity` ke `ReportDetailActivity` dengan membawa data `REPORT_ID`.
-5. **Intent (Implicit):** Dari `ReportDetailActivity` membuka aplikasi peta (Google Maps) lewat URI `geo:` untuk menampilkan lokasi laporan.
-6. **Intent (Explicit):** Kembali dari `FormLaporanActivity` ke `MainActivity` setelah submit.
+
+Aplikasi menerapkan komunikasi data antar-komponen menggunakan dua skema Intent:
+
+### **1. Explicit Intent (Navigasi Internal)**
+*   **`LoginActivity` $\rightarrow$ `MainActivity`**  
+    Membawa data login sukses ke halaman utama.
+*   **`MainActivity` $\rightarrow$ `FormLaporanActivity`**  
+    Membuka formulir pengaduan baru melalui penekanan tombol (*FAB*).
+*   **`FormLaporanActivity` $\rightarrow$ `LocationPickerActivity`**  
+    Membuka peta pencari lokasi. Menggunakan `ActivityResultLauncher` untuk mengembalikan koordinat `latitude`, `longitude`, dan alamat teks kembali ke formulir utama.
+*   **`MainActivity` $\rightarrow$ `ReportDetailActivity`**  
+    Mengirimkan parameter tambahan berupa `REPORT_ID` yang diklik dari daftar agar halaman detail memuat data yang sesuai dari API.
+*   **`FormLaporanActivity` $\rightarrow$ `MainActivity`**  
+    Mengarahkan kembali pengguna ke dasbor utama secara otomatis setelah aduan sukses dikirim.
+
+### **2. Implicit Intent (Integrasi Sistem Android)**
+*   **Kamera & Galeri Intent:** Membuka kamera bawaan perangkat atau pemilih file galeri guna menangkap gambar bukti laporan aduan.
+*   **Intent Navigasi Luar:** Membuka koordinat GPS laporan di aplikasi peta luar (seperti Google Maps atau Waze) menggunakan protokol URI `geo:latitude,longitude?q=...` yang didukung oleh query manifes Package Visibility pada Android 11+.
+
+<hr>
 
 ## e. Daftar Widget
-- `RecyclerView`: Menampilkan list laporan secara dinamis.
-- `EditText` / `TextInputEditText`: Input email, password, deskripsi, lokasi.
-- `Button`: Tombol login, submit, update status, hapus, pilih lokasi, buka maps.
-- `AutoCompleteTextView`: Dropdown pilihan kategori.
-- `ImageView`: Menampilkan foto bukti masalah & preview upload.
-- `ChipGroup`: Filter kategori laporan.
-- `SupportMapFragment` (openstreetmap): Peta interaktif pemilihan lokasi.
-- `FloatingActionButton`: Tombol tambah laporan & gunakan lokasi saat ini.
-- `ProgressBar`: Indikator loading saat memuat data/lokasi.
+
+Aplikasi memanfaatkan komponen UI **Material Design** berikut untuk menyajikan antarmuka yang modern dan intuitif:
+
+*   `RecyclerView` : Merender daftar kartu laporan secara efisien.
+*   `MaterialCardView` : Membuat bayangan (*elevation*) dan sudut tumpul pada kartu laporan aduan.
+*   `TextInputEditText` & `TextInputLayout` : Menyediakan kolom input (Email, Password, Deskripsi) dengan validasi error langsung di dalam layout.
+*   `AutoCompleteTextView` : Dropdown pilihan kategori pengaduan yang ramah pengguna.
+*   `ImageView` : Menampilkan preview foto lokal sebelum diunggah serta menampilkan gambar server hasil unduhan Glide.
+*   `ChipGroup` : Tombol filter kategori horizontal yang interaktif.
+*   `MapView` (OSMDroid) : Komponen penampil peta OpenStreetMap.
+*   `FloatingActionButton` : Tombol bulat melayang untuk memicu proses tambah laporan dan penguncian lokasi GPS.
+*   `ProgressBar` : Indikator loading melingkar saat proses komputasi latar belakang berjalan.
+
+<hr>
 
 ## f. Daftar Library
-- **Retrofit 2**: Library untuk komunikasi dengan REST API secara efisien.
-- **Gson**: Mengonversi format JSON dari API menjadi objek Java.
-- **OkHttp Logging Interceptor**: Digunakan untuk debugging request/response jaringan (lihat di Logcat tag `okhttp.OkHttpClient`, bukti integrasi REST API saat demo).
-- **Glide**: Library untuk loading dan caching gambar dari URL.
-- **ViewBinding**: Memudahkan interaksi dengan UI komponen secara type-safe.
-- **Play Services Maps**: Menampilkan peta interaktif Google Maps.
-- **Play Services Location (FusedLocationProviderClient)**: Mengambil lokasi GPS pengguna saat ini.
+
+Pengembangan aplikasi ini didukung oleh ekosistem library Android berikut:
+
+| Nama Library | Versi & Maven | Alasan Penggunaan |
+| :--- | :--- | :--- |
+| **Retrofit 2** | `com.squareup.retrofit2:retrofit` | Pustaka utama komunikasi client-server REST API secara asinkron. |
+| **Gson** | `com.google.code.gson:gson` | Serialisasi data JSON dari backend PHP menjadi representasi objek Java OOP (*POJO*). |
+| **OkHttp Logging Interceptor** | `com.squareup.okhttp3:logging-interceptor` | Memantau seluruh aktivitas request jaringan di Logcat guna pembuktian pengiriman data REST API. |
+| **Glide** | `com.github.bumptech.glide:glide` | Pengunduhan gambar dinamis secara asinkron dan manajemen cache memori perangkat. |
+| **OSMDroid** | `org.osmdroid:osmdroid-android` | Peta open-source OpenStreetMap interaktif bebas lisensi berbayar. |
+| **Play Services Location** | `play-services-location` | Layanan penguncian koordinat posisi GPS pengguna secara akurat (*FusedLocationProvider*). |
+
+<hr>
 
 ## g. Database (ERD)
-### Tabel `users`
-- `id` (INT, PK, AI)
-- `name` (VARCHAR)
-- `email` (VARCHAR, Unique)
-- `password` (VARCHAR)
-- `role` (ENUM: 'resident', 'admin')
-- `phone` (VARCHAR)
 
-### Tabel `reports`
-- `id` (INT, PK, AI)
-- `user_id` (INT, FK -> users.id)
-- `category` (VARCHAR)
-- `description` (TEXT)
-- `location` (VARCHAR) — alamat teks hasil reverse geocoding
-- `latitude` (DOUBLE, nullable) — **kolom baru**
-- `longitude` (DOUBLE, nullable) — **kolom baru**
-- `photo_url` (VARCHAR, nullable) — path relatif file foto di server
-- `status` (ENUM: 'new', 'processing', 'completed')
-- `report_date` (TIMESTAMP)
+Database menggunakan RDBMS MySQL/MariaDB dengan relasi **Satu-ke-Banyak (One-to-Many Relationship)**:
 
-```
-users (1) ----< (N) reports
-```
+<hr>
 
 ## h. REST API List
-**Base URL (contoh):** `http://<IP_SERVER>/laporrt/`
-> Semua file backend ditaruh **flat/rata** langsung di folder `laporrt/` pada web server kalian (htdocs), BUKAN di dalam subfolder `api/` atau `laporan/` — ini menyesuaikan `ApiClient.java` yang memanggil endpoint langsung dari root base URL.
 
-1. **POST `login.php`**
-   - Request: `{"email": "budi@gmail.com", "password": "123456"}`
-   - Response sukses: `{"success": true, "message": "Login Berhasil", "token": "token_xxx", "user": {"id":1,"name":"Budi","email":"...","role":"resident","phone":"..."}}`
-   - Response gagal: `{"success": false, "message": "Email atau password salah"}`
+> **PENTING:** Seluruh berkas file backend PHP diletakkan **flat / sejajar** langsung di dalam folder root `laporrt/` pada web server Anda (`xampp/htdocs/laporrt/`), bukan di dalam subfolder `api/`.
 
-2. **GET `list.php`**
-   - Response: `[{"id":1,"user_id":2,"category":"Jalan Rusak","description":"...","location":"...","latitude":-6.208763,"longitude":106.845599,"photo_url":"uploads/report_123.jpg","status":"new","report_date":"2026-07-04 10:00:00"}, ...]`
+Klik untuk melihat struktur detail pengoperasian endpoint API di bawah ini:
 
-3. **POST `create.php`**
-   - Request: `{"user_id":"2","category":"Jalan Rusak","description":"Jalan berlubang cukup dalam","location":"Jl. Mawar No. 10","latitude":"-6.208763","longitude":"106.845599","photo_url":"uploads/report_123.jpg","status":"new"}`
-   - Response: `{"success": true, "message": "Report created successfully", "id": 5}`
+<details>
+<summary>🔑 <b>1. POST login.php</b></summary>
 
-4. **GET `detail.php?id={id}`**
-   - Response: `{"id":1,"category":"Jalan Rusak","description":"...","location":"...","latitude":-6.208763,"longitude":106.845599,"photo_url":"uploads/report_123.jpg","status":"new","report_date":"..."}`
+*   **Request Body (JSON):**
+    ```json
+    {
+      "email": "budi@gmail.com",
+      "password": "123456"
+    }
+    ```
+*   **Response Sukses (200 OK):**
+    ```json
+    {
+      "success": true,
+      "message": "Login Berhasil",
+      "token": "token_xxx",
+      "user": {
+        "id": 1,
+        "name": "Budi",
+        "email": "budi@gmail.com",
+        "role": "resident",
+        "phone": "08123456789"
+      }
+    }
+    ```
+</details>
 
-5. **PUT `update_status.php`**
-   - Request: `{"id": 1, "status": "processing"}`
-   - Response: `{"success": true, "message": "Status updated successfully"}`
+<details>
+<summary>📋 <b>2. GET list.php</b></summary>
 
-6. **DELETE `delete.php?id={id}`**
-   - Response: `{"success": true, "message": "Report deleted successfully"}`
+*   **Response Sukses (200 OK):**
+    ```json
+    [
+      {
+        "id": 1,
+        "user_id": 2,
+        "category": "Jalan Rusak",
+        "description": "Ada lubang yang cukup dalam di tengah jalan",
+        "location": "Jl. Mawar No. 10",
+        "latitude": -6.208763,
+        "longitude": 106.845599,
+        "photo_url": "uploads/report_123.jpg",
+        "status": "new",
+        "report_date": "2026-07-04 10:00:00"
+      }
+    ]
+    ```
+</details>
 
-7. **POST `upload_photo.php`** *(baru, sebelumnya tidak ada)*
-   - Request: `multipart/form-data`, field name `photo` berisi file gambar (jpg/png/webp, maks 5MB)
-   - Response sukses: `{"success": true, "message": "Foto berhasil diunggah", "photo_url": "uploads/report_1720000000_a1b2c3d4.jpg"}`
-   - Response gagal: `{"success": false, "message": "Format file harus JPG, PNG, atau WEBP"}`
+<details>
+<summary>✍️ <b>3. POST create.php</b></summary>
+
+*   **Request Body (JSON):**
+    ```json
+    {
+      "user_id": "2",
+      "category": "Jalan Rusak",
+      "description": "Jalan berlubang cukup dalam",
+      "location": "Jl. Mawar No. 10",
+      "latitude": "-6.208763",
+      "longitude": "106.845599",
+      "photo_url": "uploads/report_123.jpg",
+      "status": "new"
+    }
+    ```
+*   **Response Sukses (200 OK):**
+    ```json
+    {
+      "success": true,
+      "message": "Report created successfully",
+      "id": 5
+    }
+    ```
+</details>
+
+<details>
+<summary>🔍 <b>4. GET detail.php?id={id}</b></summary>
+
+*   **Response Sukses (200 OK):**
+    ```json
+    {
+      "id": 1,
+      "category": "Jalan Rusak",
+      "description": "Ada lubang yang cukup dalam di tengah jalan",
+      "location": "Jl. Mawar No. 10",
+      "latitude": -6.208763,
+      "longitude": 106.845599,
+      "photo_url": "uploads/report_123.jpg",
+      "status": "new",
+      "report_date": "2026-07-04 10:00:00"
+    }
+    ```
+</details>
+
+<details>
+<summary>⚙️ <b>5. PUT update_status.php</b></summary>
+
+*   **Request Body (JSON):**
+    ```json
+    {
+      "id": 1,
+      "status": "processing"
+    }
+    ```
+*   **Response Sukses (200 OK):**
+    ```json
+    {
+      "success": true,
+      "message": "Status updated successfully"
+    }
+    ```
+</details>
+
+<details>
+<summary>🗑️ <b>6. DELETE delete.php?id={id}</b></summary>
+
+*   **Response Sukses (200 OK):**
+    ```json
+    {
+      "success": true,
+      "message": "Report deleted successfully"
+    }
+    ```
+</details>
+
+<details>
+<summary>📸 <b>7. POST upload_photo.php</b></summary>
+
+*   **Request (Multipart Form-Data):**  
+    *   Key: `photo` (File Gambar: jpg/png/webp, maks 5MB)
+*   **Response Sukses (200 OK):**
+    ```json
+    {
+      "success": true,
+      "message": "Foto berhasil diunggah",
+      "photo_url": "uploads/report_1720000000_a1b2c3d4.jpg"
+    }
+    ```
+</details>
+
+<hr>
+
+## 🛠️ Panduan Instalasi & Pengujian
+
+### **A. Sisi Server (Backend & Database)**
+1. Pindahkan folder `laporrt/` berisi file PHP (`db_config.php`, `login.php`, `list.php`, dll.) ke dalam direktori server Anda (contoh: `C:/xampp/htdocs/laporrt/`).
+2. Import file database SQL (struktur database `db_laporrt`) melalui menu phpMyAdmin.
+3. Pastikan Anda telah menjalankan perintah SQL migrasi penambahan kolom koordinat GPS pada tabel `reports`:
+   ```sql
+   ALTER TABLE reports 
+   ADD COLUMN latitude DOUBLE NULL AFTER location, 
+   ADD COLUMN longitude DOUBLE NULL AFTER latitude;
