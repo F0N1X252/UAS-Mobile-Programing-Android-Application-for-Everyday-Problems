@@ -1,0 +1,106 @@
+[
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-debug-47:\\mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-main-49:\\mipmap-xxhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-debug-47:\\mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-main-49:\\mipmap-xhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-debug-47:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-main-49:\\drawable\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-debug-47:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-main-49:\\mipmap-hdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-debug-47:\\layout_activity_location_picker.xml.flat",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-main-49:\\layout\\activity_location_picker.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-debug-47:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-main-49:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-debug-47:\\mipmap-anydpi_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-main-49:\\mipmap-anydpi\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-debug-47:\\layout_activity_form_laporan.xml.flat",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-main-49:\\layout\\activity_form_laporan.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-debug-47:\\layout_activity_report_detail.xml.flat",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-main-49:\\layout\\activity_report_detail.xml"
+    },
+    {
+        "merged": "com.pengaduan.app-debug-47:/xml_file_paths.xml.flat",
+        "source": "com.pengaduan.app-main-49:/xml/file_paths.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-debug-47:\\layout_activity_login.xml.flat",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-main-49:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-debug-47:\\mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-main-49:\\mipmap-mdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-debug-47:\\layout_item_report.xml.flat",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-main-49:\\layout\\item_report.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-debug-47:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-main-49:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-debug-47:\\mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-main-49:\\mipmap-xxxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-debug-47:\\drawable_bg_status.xml.flat",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-main-49:\\drawable\\bg_status.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-debug-47:\\menu_menu_main.xml.flat",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-main-49:\\menu\\menu_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-debug-47:\\mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-main-49:\\mipmap-hdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-debug-47:\\layout_dialog_server_settings.xml.flat",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-main-49:\\layout\\dialog_server_settings.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-debug-47:\\mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-main-49:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-debug-47:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-main-49:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-debug-47:\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-main-49:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-debug-47:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-main-49:\\mipmap-xhdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-debug-47:\\mipmap-anydpi_ic_launcher.xml.flat",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-main-49:\\mipmap-anydpi\\ic_launcher.xml"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-debug-47:\\mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-main-49:\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-debug-47:\\mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "C:\\Users\\HP\\.gradle\\daemon\\9.4.1\\com.pengaduan.app-main-49:\\mipmap-xxxhdpi\\ic_launcher_round.webp"
+    }
+]

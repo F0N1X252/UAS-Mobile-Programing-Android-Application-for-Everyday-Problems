@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:contentScrim="@color/primary"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <ImageView
+                android:id="@+id/ivDetail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@android:drawable/ic_menu_gallery"
+                app:layout_collapseMode="parallax"
+                android:contentDescription="@string/app_name"/>
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbarDetail"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin" />
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tvDetailCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/primary"
+                android:text="Kategori"/>
+
+            <TextView
+                android:id="@+id/tvDetailStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="4dp"
+                android:textColor="@color/white"
+                android:layout_marginTop="8dp"
+                android:text="Status"/>
+
+            <TextView
+                android:id="@+id/tvDetailDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@android:color/darker_gray"
+                android:layout_marginTop="16dp"
+                android:text="12 Juli 2026"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"
+                android:layout_marginVertical="16dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/description"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/tvDetailDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/on_surface"
+                android:text="Detail deskripsi laporan ada di sini."/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/location"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:id="@+id/tvDetailLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="@color/on_surface"
+                android:text="Jl. Melati No. 123, RT 01/RW 02"/>
+
+            <Button
+                android:id="@+id/btnOpenMap"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📍 Buka di Aplikasi Peta"
+                android:visibility="gone"
+                android:layout_marginTop="4dp"/>
+
+            <Button
+                android:id="@+id/btnUpdateStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/update_status"
+                android:layout_marginTop="32dp"
+                android:visibility="gone"
+                android:backgroundTint="@color/primary"/>
+
+            <Button
+                android:id="@+id/btnDelete"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hapus Laporan"
+                android:layout_marginTop="8dp"
+                android:textColor="@android:color/holo_red_dark"
+                app:strokeColor="@android:color/holo_red_dark"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

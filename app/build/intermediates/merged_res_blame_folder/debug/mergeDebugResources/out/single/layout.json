@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "com.pengaduan.app-mergeDebugResources-46:/layout/activity_report_detail.xml",
+        "source": "com.pengaduan.app-main-49:/layout/activity_report_detail.xml"
+    },
+    {
+        "merged": "com.pengaduan.app-mergeDebugResources-46:/layout/activity_main.xml",
+        "source": "com.pengaduan.app-main-49:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.pengaduan.app-mergeDebugResources-46:/layout/activity_login.xml",
+        "source": "com.pengaduan.app-main-49:/layout/activity_login.xml"
+    },
+    {
+        "merged": "com.pengaduan.app-mergeDebugResources-46:/layout/activity_form_laporan.xml",
+        "source": "com.pengaduan.app-main-49:/layout/activity_form_laporan.xml"
+    },
+    {
+        "merged": "com.pengaduan.app-mergeDebugResources-46:/layout/item_report.xml",
+        "source": "com.pengaduan.app-main-49:/layout/item_report.xml"
+    },
+    {
+        "merged": "com.pengaduan.app-mergeDebugResources-46:/layout/activity_location_picker.xml",
+        "source": "com.pengaduan.app-main-49:/layout/activity_location_picker.xml"
+    },
+    {
+        "merged": "com.pengaduan.app-mergeDebugResources-46:/layout/dialog_server_settings.xml",
+        "source": "com.pengaduan.app-main-49:/layout/dialog_server_settings.xml"
+    }
+]

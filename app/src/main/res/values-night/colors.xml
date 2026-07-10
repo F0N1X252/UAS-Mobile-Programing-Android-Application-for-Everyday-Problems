@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- File ini SEBELUMNYA TIDAK ADA sama sekali di project.
+         Tanpa file ini, semua warna di colors.xml (termasuk yang seharusnya
+         berubah jadi gelap) selalu pakai nilai versi terang, walau HP dalam
+         mode dark. Itu sebabnya ada bagian UI yang tetap putih terang
+         (misal strip filter kategori) sementara bagian lain sudah gelap. -->
+
+    <color name="background">#121212</color>
+    <color name="surface">#1E1E1E</color>
+    <color name="on_surface">#F5F5F5</color>
+    <color name="on_surface_secondary">#B0B0B0</color>
+
+    <!-- primary/secondary sengaja TIDAK diubah supaya warna brand tetap konsisten
+         di light & dark mode (umum dilakukan di banyak app) -->
+</resources>

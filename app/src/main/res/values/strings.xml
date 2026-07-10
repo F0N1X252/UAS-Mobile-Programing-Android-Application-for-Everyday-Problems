@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">LaporRT</string>
+    <string name="login">Masuk</string>
+    <string name="email">Email</string>
+    <string name="password">Kata Sandi</string>
+    <string name="create_report">Buat Laporan</string>
+    <string name="category">Kategori</string>
+    <string name="description">Deskripsi</string>
+    <string name="location">Lokasi</string>
+    <string name="submit">Kirim</string>
+    <string name="update_status">Update Status</string>
+    <string name="status_new">Baru</string>
+    <string name="status_processing">Diproses</string>
+    <string name="status_completed">Selesai</string>
+    <string name="error_empty_field">Field ini tidak boleh kosong</string>
+    <string name="error_min_length">Minimal %d karakter</string>
+    <string name="select_category">Pilih Kategori</string>
+
+    <string name="pick_location">Pilih Lokasi di Peta</string>
+    <string name="use_current_location">Gunakan Lokasi Saya</string>
+    <string name="confirm_location">Konfirmasi Lokasi Ini</string>
+    <string name="logout">Keluar</string>
+</resources>

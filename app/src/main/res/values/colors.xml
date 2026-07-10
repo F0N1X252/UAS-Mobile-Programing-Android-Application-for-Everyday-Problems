@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="primary">#2196F3</color>
+    <color name="primary_variant">#1976D2</color>
+    <color name="secondary">#03DAC6</color>
+    <color name="status_new">#FF9800</color>
+    <color name="status_processing">#2196F3</color>
+    <color name="status_completed">#4CAF50</color>
+    <color name="background">#F5F5F5</color>
+
+    <!-- Warna semantik: berubah otomatis di mode gelap lewat values-night/colors.xml.
+         Pakai warna ini untuk permukaan/teks yang HARUS ikut tema, bukan @color/white
+         atau @color/black langsung (itu penyebab bug tampilan putih di dark mode). -->
+    <color name="surface">#FFFFFF</color>
+    <color name="on_surface">#212121</color>
+    <color name="on_surface_secondary">#757575</color>
+</resources>

@@ -1,0 +1,5 @@
+com.pengaduan.test.app-updated_navigation_xml-0 C:\Users\HP\AndroidStudioProjects\Pengaduan-1\app\build\generated\updated_navigation_xml\debugAndroidTest
+com.pengaduan.test.app-packageDebugAndroidTestResources-1 C:\Users\HP\AndroidStudioProjects\Pengaduan-1\app\build\intermediates\incremental\debugAndroidTest\packageDebugAndroidTestResources\merged.dir
+com.pengaduan.test.app-packageDebugAndroidTestResources-2 C:\Users\HP\AndroidStudioProjects\Pengaduan-1\app\build\intermediates\incremental\debugAndroidTest\packageDebugAndroidTestResources\stripped.dir
+com.pengaduan.test.app-debugAndroidTest-3 C:\Users\HP\AndroidStudioProjects\Pengaduan-1\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources
+gradleHome-0 C:\Users\HP\.gradle
